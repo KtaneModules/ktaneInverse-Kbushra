@@ -23,6 +23,7 @@ public class SimpleModuleScript : MonoBehaviour {
 	bool incorrect = false;
 	bool ERROR1 = false;
 	bool ERROR2 = false;
+	bool modified = false;
 
 	public Material[] materials;
 	public int modifiedNum;
@@ -57,51 +58,62 @@ public class SimpleModuleScript : MonoBehaviour {
 		if (widgetChooser == 1) 
 		{
 			modifiedNum = info.GetPortCount ();
+			Debug.LogFormat ("Starting modified number is {0} and widget chooser num is {1}", modifiedNum, widgetChooser); 
 		}
 		if (widgetChooser == 2) 
 		{
 			modifiedNum = info.GetPortPlateCount ();
+			Debug.LogFormat ("Starting modified number is {0} and widget chooser num is {1}", modifiedNum, widgetChooser); 
 		}
 		if (widgetChooser == 3) 
 		{
 			modifiedNum = info.GetBatteryCount ();
+			Debug.LogFormat ("Starting modified number is {0} and widget chooser num is {1}", modifiedNum, widgetChooser); 
 		}
 		if (widgetChooser == 4) 
 		{
 			modifiedNum = info.GetBatteryHolderCount ();
+			Debug.LogFormat ("Starting modified number is {0} and widget chooser num is {1}", modifiedNum, widgetChooser); 
 		}
 		if (widgetChooser == 5) 
 		{
 			modifiedNum = info.GetOffIndicators ().ToList ().Count;
+			Debug.LogFormat ("Starting modified number is {0} and widget chooser num is {1}", modifiedNum, widgetChooser); 
 		}
 		if (widgetChooser == 6) 
 		{
 			modifiedNum = info.GetOnIndicators ().ToList ().Count;
+			Debug.LogFormat ("Starting modified number is {0} and widget chooser num is {1}", modifiedNum, widgetChooser); 
 		}
 
 		//modifying num
-		if (modifiedNum > 2 && modifiedNum < 6) 
+		if (modifiedNum > 2 && modifiedNum < 6 && modified == false) 
 		{
 			modifiedNum = modifiedNum * 2;
 			modifiedNum = modifiedNum + 1;
+			modified = true;
 		}
-		if (modifiedNum > 5 && modifiedNum < 9) 
+		if (modifiedNum > 5 && modifiedNum < 9 && modified == false) 
 		{
 			modifiedNum = modifiedNum - 3;
+			modified = true;
 		}
-		if (modifiedNum > 8 && modifiedNum < 12) 
+		if (modifiedNum > 8 && modifiedNum < 12 && modified == false) 
 		{
 			modifiedNum = modifiedNum * 2;
 			modifiedNum = modifiedNum - 12;
+			modified = true;
 		}
-		if (modifiedNum > 11 && modifiedNum < 21) 
+		if (modifiedNum > 11 && modifiedNum < 21 && modified == false) 
 		{
 			modifiedNum = modifiedNum * 2;
 			modifiedNum = modifiedNum - 3;
+			modified = true;
 		}
-		if (modifiedNum > 20) 
+		if (modifiedNum > 20 && modified == false) 
 		{
 			modifiedNum = modifiedNum * 3;
+			modified = true;
 		}
 
 		//setting material
@@ -116,14 +128,14 @@ public class SimpleModuleScript : MonoBehaviour {
 			renderer = display.GetComponent<Renderer> ();
 			renderer.enabled = true;
 			ERROR1 = true;
-			renderer.sharedMaterial = materials [11];
+			renderer.sharedMaterial = materials [12];
 		}
 		if (modifiedNum > 40)
 		{
 			renderer = display.GetComponent<Renderer> ();
 			renderer.enabled = true;
 			ERROR2 = true;
-			renderer.sharedMaterial = materials [12];
+			renderer.sharedMaterial = materials [13];
 		}
 	}
 

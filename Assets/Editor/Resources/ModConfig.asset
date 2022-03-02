@@ -14,10 +14,10 @@ MonoBehaviour:
   id: inverse
   title: Inverse
   author: That one kid
-  description: 'You start with a simbol and end with a widget type.
+  description: 'You start with a symbol and end with a widget type.
 
 
     MAKES COMPLETE SENSE.'
   version: 1.0
   outputFolder: build
-  previewImage: {fileID: 0}
+  previewImage: {fileID: 2800000, guid: d5a492abe69a136429e5e192ec82b298, type: 3}
